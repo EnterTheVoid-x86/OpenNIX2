@@ -12,7 +12,7 @@ namespace OpenNIX_2
 {
     public class Kernel : Sys.Kernel
     {
-        public const int Width = 800, Height = 600;
+        public static ushort Width = 1024, Height = 768;
         public static Display Screen = Display.GetDisplay(Width, Height);
         public static SVGAIITerminal Console = new SVGAIITerminal(Width, Height, Resources.Font, FallbackTerminalUpdate);
         public static CosmosVFS FS = new CosmosVFS();

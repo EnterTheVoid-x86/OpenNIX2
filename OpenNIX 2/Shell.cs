@@ -67,6 +67,10 @@ namespace OpenNIX
                     GUI.WindowManager.Start();
                     break;
 
+                case "setres":
+                    Commands.SetResolution();
+                    break;
+
                 case "who":
                     Commands.Who();
                     break;

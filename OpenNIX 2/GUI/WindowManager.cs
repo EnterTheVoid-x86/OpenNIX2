@@ -62,6 +62,11 @@ namespace OpenNIX.GUI
 
         public static void Start()
         {
+            if (stopped == "resolution changed")
+            {
+                OpenNIX_2.Kernel.Screen = Display.GetDisplay(1024, 768);
+                stopped = "false";
+            }
             if (stopped == "false" || stopped == "NA")
             {
                 stopped = "false";
