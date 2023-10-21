@@ -1,5 +1,5 @@
 ﻿/*
-* PROJECT:          Aura Operating System Development
+* CREDITS:          Aura Operating System Development
 * CONTENT:          Time Implementation
 * PROGRAMMERS:      Valentin Charbonnier <valentinbreiz@gmail.com>
 *                   John Welsh <djlw78@gmail.com>
