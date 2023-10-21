@@ -1,4 +1,7 @@
-﻿using Cosmos.System.Network;
+﻿/* This code is licensed under the ekzFreeUse license
+ * If a license wasn't included with the program,
+ * refer to https://github.com/EnterTheVoid-x86/OpenNIX2/blob/master/LICENSE.md */
+
 using Cosmos.System.Network.IPv4.UDP.DHCP;
 using System;
 

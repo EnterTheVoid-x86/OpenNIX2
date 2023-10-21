@@ -1,4 +1,9 @@
-﻿//#define SHOW_FPS
+﻿/* This code is licensed under the ekzFreeUse license
+ * If a license wasn't included with the program,
+ * refer to https://github.com/EnterTheVoid-x86/OpenNIX2/blob/master/LICENSE.md */
+
+//#define SHOW_FPS
+//#define SHOW_MOUSEPOS
 
 using System;
 using System.Collections.Generic;

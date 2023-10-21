@@ -6,7 +6,6 @@
 *                   Alexy DA CRUZ <dacruzalexy@gmail.com>
 */
 using Cosmos.HAL;
-using OpenNIX_2;
 
 namespace OpenNIX
 {

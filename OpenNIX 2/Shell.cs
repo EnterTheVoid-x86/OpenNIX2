@@ -1,10 +1,6 @@
 ﻿/* This code is licensed under the ekzFreeUse license
  * If a license wasn't included with the program,
- * refer to https://github.com/9xbt/SVGAIITerminal/blob/main/LICENSE.md */
-
-using OpenNIX;
-using PrismAPI.UI;
-using OpenNIX.GUI;
+ * refer to https://github.com/EnterTheVoid-x86/OpenNIX2/blob/master/LICENSE.md */
 
 
 namespace OpenNIX
@@ -62,6 +58,10 @@ namespace OpenNIX
 
                 case "onvi":
                     Commands.StartONVI(args);
+                    break;
+
+                case "license":
+                    Commands.License();
                     break;
 
                 case "gui":

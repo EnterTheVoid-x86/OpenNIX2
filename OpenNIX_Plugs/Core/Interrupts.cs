@@ -1,5 +1,8 @@
-﻿using IL2CPU.API.Attribs;
-using System;
+﻿/* This code is licensed under the ekzFreeUse license
+ * If a license wasn't included with the program,
+ * refer to https://github.com/EnterTheVoid-x86/OpenNIX2/blob/master/LICENSE.md */
+
+using IL2CPU.API.Attribs;
 using static Cosmos.Core.INTs;
 using OpenNIX_2;
 

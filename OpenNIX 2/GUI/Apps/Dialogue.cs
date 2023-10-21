@@ -1,6 +1,6 @@
 ﻿/* This code is licensed under the ekzFreeUse license
  * If a license wasn't included with the program,
- * refer to https://github.com/9xbt/SVGAIITerminal/blob/main/LICENSE.md */
+ * refer to https://github.com/EnterTheVoid-x86/OpenNIX2/blob/master/LICENSE.md */
 
 using PrismAPI.Graphics;
 using OpenNIX.GUI.Controls;
