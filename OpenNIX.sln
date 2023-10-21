@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenNIX_2", "OpenNIX 2\OpenNIX_2.csproj", "{45D4852D-CD6D-4828-B3FE-D617FA53AB5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenNIX_Plugs", "OpenNIX_Plugs\OpenNIX_Plugs.csproj", "{18396650-6ED0-44FA-8803-410C387B0F0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45D4852D-CD6D-4828-B3FE-D617FA53AB5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45D4852D-CD6D-4828-B3FE-D617FA53AB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45D4852D-CD6D-4828-B3FE-D617FA53AB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45D4852D-CD6D-4828-B3FE-D617FA53AB5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18396650-6ED0-44FA-8803-410C387B0F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18396650-6ED0-44FA-8803-410C387B0F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18396650-6ED0-44FA-8803-410C387B0F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18396650-6ED0-44FA-8803-410C387B0F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C32D15E5-0B78-4437-859F-7327C0B0B08F}
+	EndGlobalSection
+EndGlobal
