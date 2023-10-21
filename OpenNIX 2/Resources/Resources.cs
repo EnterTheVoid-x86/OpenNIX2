@@ -1,4 +1,8 @@
-﻿#pragma warning disable CS0649
+﻿/* This code is licensed under the ekzFreeUse license
+ * If a license wasn't included with the program,
+ * refer to https://github.com/9xbt/SVGAIITerminal/blob/main/LICENSE.md */
+
+#pragma warning disable CS0649
 
 using IL2CPU.API.Attribs;
 using PrismAPI.Graphics;

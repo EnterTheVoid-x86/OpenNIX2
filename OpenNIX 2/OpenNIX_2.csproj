@@ -59,9 +59,17 @@
 
     <ItemGroup>
         <PackageReference Include="Cosmos.Build" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.Common" Version="0.1.0-localbuild20231021060842" />
+        <PackageReference Include="Cosmos.Core" Version="0.1.0-localbuild20231021060842" />
         <PackageReference Include="Cosmos.Debug.Kernel" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.Debug.Kernel.Plugs.Asm" Version="0.1.0-localbuild20231021060842" />
+        <PackageReference Include="Cosmos.HAL2" Version="0.1.0-localbuild20231021060842" />
+        <PackageReference Include="Cosmos.Plugs" Version="0.1.0-localbuild20231021060842" />
         <PackageReference Include="Cosmos.System2" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.System2_Plugs" Version="0.1.0-localbuild20231021060842" />
+        <PackageReference Include="IL2CPU.API" Version="0.1.0-localbuild20231021060842" />
         <PackageReference Include="PrismAPI" Version="1.0.3" />
+        <PackageReference Include="TinyMath" Version="1.0.1" />
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
