@@ -83,7 +83,7 @@ namespace OpenNIX
                     Commands.CD(input, args);
                     break;
 
-                case "copy":
+                case "cp":
                     Commands.Copy(input, args);
                     break;
 
