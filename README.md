@@ -7,6 +7,7 @@ OpenNIX is an operating system developed in C# using the COSMOS framework. It is
 - Unix-like paths
 - Fixed directory/file commands
 - Multi-terminal support
+- Scripting
 
 ## Screenshots
 ![image1](https://github.com/EnterTheVoid-x86/OpenNIX2/assets/64978924/39c622e7-9b04-4156-8263-9b65a2c76cd5)
