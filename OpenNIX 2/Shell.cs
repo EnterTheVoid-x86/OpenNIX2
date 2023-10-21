@@ -64,6 +64,10 @@ namespace OpenNIX
                     Commands.License();
                     break;
 
+                case "script":
+                    Commands.Script(input);
+                    break;
+
                 case "gui":
                     //Console.Clear();
                     //System.Threading.Thread.Sleep(2000);
