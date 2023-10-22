@@ -56,6 +56,10 @@ namespace OpenNIX
                     Commands.SetFont(input, args);
                     break;
 
+                case "hash":
+                    Commands.Hash(input.Split("hash ")[1].Split(" >> "));
+                    break;
+
                 case "onvi":
                     Commands.StartONVI(args);
                     break;
@@ -66,6 +70,10 @@ namespace OpenNIX
 
                 case "script":
                     Commands.Script(input);
+                    break;
+
+                case "adduser":
+                    Commands.AddUser(input, args);
                     break;
 
                 case "gui":

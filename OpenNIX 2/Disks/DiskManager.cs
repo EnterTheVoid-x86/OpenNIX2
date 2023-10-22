@@ -20,10 +20,16 @@ namespace OpenNIX
 
                 Logger.SuccessLog("Filesystem intialized.");
 
-                if (!Directory.Exists(@"0:\System"))
+                if (!Directory.Exists(@"0:\usr"))
                 {
-                    Directory.CreateDirectory(@"0:\System\");
-                    Directory.CreateDirectory(@"0:\System\Fonts");
+                    Directory.CreateDirectory(@"0:\usr\");
+                    Directory.CreateDirectory(@"0:\usr\share\");
+                    Directory.CreateDirectory(@"0:\usr\share\fonts");
+                }
+
+                if (!Directory.Exists(@"0:\etc"))
+                {
+                    Directory.CreateDirectory(@"0:\etc\");
                 }
 
             }

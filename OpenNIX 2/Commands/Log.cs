@@ -10,18 +10,16 @@ namespace OpenNIX
     {
         public static void Log(string input, string[] args)
         {
-            Console.WriteLine(input);
-            Console.WriteLine(args[1] + args[2] + input);
             try
             {
                 if (args[1] != "help")
                 {
-                    if (!input.Contains('"') && args.Length < 2)
+                    if (!input.Contains('"') && args.Length < 3)
                     {
                         Console.WriteLine("Argument underflow.", SVGAIIColor.Red);
                         return;
                     }
-                    else if (!input.Contains('"') && args.Length > 2)
+                    else if (!input.Contains('"') && args.Length > 3)
                     {
                         Console.WriteLine("Argument overflow.", SVGAIIColor.Red);
                         return;

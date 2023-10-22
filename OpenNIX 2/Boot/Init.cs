@@ -18,7 +18,7 @@ namespace OpenNIX
             MouseDriver.Initialize();
             DiskManager.InitFS(Kernel.FS);
             NetworkManager.Initialize();
-            Logger.InfoLog("Dropping into Shell...");
+            Logger.SuccessLog("Login manager initalized.");
         }
     }
 }

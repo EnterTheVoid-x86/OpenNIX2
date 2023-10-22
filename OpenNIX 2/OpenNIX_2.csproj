@@ -24,6 +24,10 @@
         <CompressionType>Gzip</CompressionType>
         <VMWareEdition>Workstation</VMWareEdition>
         <DebugEnabled>False</DebugEnabled>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <CompileVBEMultiboot>True</CompileVBEMultiboot>
+        <Timeout>5</Timeout>
+        <TraceMode>All</TraceMode>
     </PropertyGroup>
 
     <ItemGroup>

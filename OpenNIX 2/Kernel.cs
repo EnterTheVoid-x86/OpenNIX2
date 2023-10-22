@@ -11,6 +11,7 @@ using OpenNIX;
 using System.IO;
 using OpenNIX.GUI;
 using System.Reflection;
+using System.Net.Http.Headers;
 
 namespace OpenNIX_2
 {
@@ -24,21 +25,19 @@ namespace OpenNIX_2
         public const string Version = "2.0";
         public static string Build = Resources.BuildDate;
         public const string Copyright = "Copyright (c) 2023 Callux Industries. All rights reserved.";
-        public const string Username = "root";
-        public const string Hostname = "OpenNIX";
+        public static string Username = "root";
+        public static string Hostname = "OpenNIX";
         public static string BootTime = Time.MonthString() + "/" + Time.DayString() + "/" + Time.YearString() + ", " + Time.TimeString(true, true, true);
 
         protected override void BeforeRun()
         {
-            Init.Boot();
             WindowManager.stopped = "NA";
+            Init.Boot();
         }
 
         protected override void Run()
         {
-            Console.Write($"[{Username}@{Hostname} {DiskManager.GetUnixLikePath(Directory.GetCurrentDirectory())}]# ", SVGAIIColor.Gray);
-            var input = Console.ReadLine();
-            Shell.Run(input, Console);
+            LoginManager.Run(Console);
         }
 
         private static void FallbackTerminalUpdate()

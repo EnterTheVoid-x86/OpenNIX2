@@ -39,7 +39,7 @@ namespace OpenNIX.GUI.Apps
 
         public void DrawPrompt()
         {
-            Console.Write($"[{OpenNIX_2.Kernel.Username}@[{OpenNIX_2.Kernel.Hostname} ");
+            Console.Write($"[{OpenNIX_2.Kernel.Username}@{OpenNIX_2.Kernel.Hostname} ");
             Console.Write(DiskManager.GetUnixLikePath(Directory.GetCurrentDirectory()));
             Console.Write("]# ");
         }
