@@ -1,4 +1,4 @@
-# Welcome to OpenNIX 2.0
+# Welcome to OpenNIX 2
 OpenNIX is an operating system developed in C# using the COSMOS framework. It is inspired by various UNIX-like operating systems including FreeBSD, Darwin, and Linux.
 
 ## Features
