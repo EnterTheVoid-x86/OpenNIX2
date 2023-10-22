@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Security.Cryptography;
+using System.Text;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace OpenNIX
@@ -22,7 +23,7 @@ namespace OpenNIX
                 if (Directory.Exists($@"0:\home\{username}"))
                 {
                     Console.Write("Password: ", SVGAIIColor.Gray);
-                    string password = Console.ReadLine();
+                    string password = Console.ReadLine(true);
 
                     string passTableString = File.ReadAllText(@"0:\etc\shadow");
 
@@ -84,7 +85,7 @@ namespace OpenNIX
                 Console.Write("First off, what do you want your username to be? ", SVGAIIColor.Gray);
                 var newUsername = Console.ReadLine();
                 Console.Write("Next, choose a password: ", SVGAIIColor.Gray);
-                var newPassword = Console.ReadLine();
+                var newPassword = Console.ReadLine(true);
                 Console.Write("Finally, choose a hostname for your computer: ", SVGAIIColor.Gray);
                 var newHostname = Console.ReadLine();
 

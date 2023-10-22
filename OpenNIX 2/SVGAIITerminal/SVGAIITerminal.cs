@@ -3,6 +3,7 @@
  * refer to https://github.com/EnterTheVoid-x86/OpenNIX2/blob/master/LICENSE.md */
 
 using System;
+using System.Text;
 using Cosmos.System;
 using PrismAPI.Graphics;
 using PrismAPI.Graphics.Fonts;
@@ -122,7 +123,7 @@ public class SVGAIITerminal
 
     public bool reading = false;
 
-    public string ReadLine()
+    public string ReadLine(bool silent = false)
     {
         ForceDrawCursor();
 
@@ -152,16 +153,20 @@ public class SVGAIITerminal
                         {
                             if (CursorX == 0)
                             {
-                                Contents.DrawFilledRectangle(Font.Size / 2 * CursorX, Font.Size * CursorY, Convert.ToUInt16(Font.Size / 2), Font.Size, 0, BackgroundColor);
+                                if (!silent)
+                                    Contents.DrawFilledRectangle(Font.Size / 2 * CursorX, Font.Size * CursorY, Convert.ToUInt16(Font.Size / 2), Font.Size, 0, BackgroundColor);
                                 CursorY--;
                                 CursorX = Contents.Width / (Font.Size / 2) - 1;
-                                Contents.DrawFilledRectangle(Font.Size / 2 * CursorX, Font.Size * CursorY, Convert.ToUInt16(Font.Size / 2), Font.Size, 0, BackgroundColor);
+                                if (!silent)
+                                    Contents.DrawFilledRectangle(Font.Size / 2 * CursorX, Font.Size * CursorY, Convert.ToUInt16(Font.Size / 2), Font.Size, 0, BackgroundColor);
                             }
                             else
                             {
-                                Contents.DrawFilledRectangle(Font.Size / 2 * CursorX, Font.Size * CursorY, Convert.ToUInt16(Font.Size / 2), Font.Size, 0, BackgroundColor);
+                                if (!silent)
+                                    Contents.DrawFilledRectangle(Font.Size / 2 * CursorX, Font.Size * CursorY, Convert.ToUInt16(Font.Size / 2), Font.Size, 0, BackgroundColor);
                                 CursorX--;
-                                Contents.DrawFilledRectangle(Font.Size / 2 * CursorX, Font.Size * CursorY, Convert.ToUInt16(Font.Size / 2), Font.Size, 0, BackgroundColor);
+                                if (!silent)
+                                    Contents.DrawFilledRectangle(Font.Size / 2 * CursorX, Font.Size * CursorY, Convert.ToUInt16(Font.Size / 2), Font.Size, 0, BackgroundColor);
                             }
 
                             returnValue = returnValue.Remove(returnValue.Length - 1); // Remove the last character of the string
@@ -171,7 +176,8 @@ public class SVGAIITerminal
                         break;
 
                     case ConsoleKeyEx.Tab:
-                        Write('\t');
+                        if (!silent)
+                            Write('\t');
                         returnValue += new string(' ', 4);
 
                         ForceDrawCursor();
@@ -199,8 +205,11 @@ public class SVGAIITerminal
                         }
                         else
                         {
-                            Write(key.KeyChar.ToString());
-                            TryScroll();
+                            if (!silent)
+                            {
+                                Write(key.KeyChar.ToString());
+                                TryScroll();
+                            }
                             returnValue += key.KeyChar;
                         }
 
@@ -208,6 +217,9 @@ public class SVGAIITerminal
                         break;
                 }
             }
+
+            if (OpenNIX.GUI.WindowManager.stopped == "false") 
+                OpenNIX.GUI.WindowManager.Update();
 
         }
 

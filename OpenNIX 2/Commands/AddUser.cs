@@ -21,7 +21,7 @@ namespace OpenNIX
             string oldShadow = File.ReadAllText(@"0:\etc\shadow");
 
             Console.Write($"Enter new password for {args[1]}: ", SVGAIIColor.Gray);
-            var newPassword = Console.ReadLine();
+            var newPassword = Console.ReadLine(true);
 
             File.WriteAllText($@"0:\etc\shadow", $"{oldShadow}/{args[1]}:{Hashing.GetNonRandomizedHashCode(newPassword).ToString()}");
 
