@@ -53,6 +53,12 @@ namespace OpenNIX
 
                     if (Hashing.GetNonRandomizedHashCode(password).ToString() == userInfo[1])
                     {
+                        if (File.Exists($@"0:\home\{username}\background.txt"))
+                        {
+                            Resources.rawWallpaper = File.ReadAllBytes(File.ReadAllText($@"0:\home\{username}\background.txt"));
+                            Resources.GenerateBackground();
+                        }
+
                         Logger.InfoLog("Dropping into Shell...");
                         Kernel.Username = username;
                         Directory.SetCurrentDirectory(DiskManager.GetCosmosLikePath($"/home/{username}"));

@@ -56,6 +56,10 @@ namespace OpenNIX
                     Commands.SetFont(input, args);
                     break;
 
+                case "setbackground":
+                    Commands.SetBackground(input, args);
+                    break;
+
                 case "hash":
                     Commands.Hash(input.Split("hash ")[1].Split(" >> "));
                     break;

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Cosmos.System.FileSystem;
 using Cosmos.System.FileSystem.VFS;
+using PrismAPI.Graphics;
 using OpenNIX;
 using OpenNIX_2;
 

@@ -20,7 +20,7 @@ namespace OpenNIX
         [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.Logo.bmp")] private static byte[] rawLogo;
         public static Canvas Logo = Image.FromBitmap(rawLogo, false);
 
-        [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.Wallpaper.bmp")] private static byte[] rawWallpaper;
+        [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.Wallpaper.bmp")] public static byte[] rawWallpaper;
         public static Canvas Wallpaper = Image.FromBitmap(rawWallpaper, false);
 
         [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.BuildDate.txt")] private static byte[] rawBuildDate;
@@ -44,6 +44,8 @@ namespace OpenNIX
         [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.Error.bmp")] private static byte[] rawError;
         public static Canvas Error;
         public static void GenerateFont() => Font = new Font(rawFont, 16);
+
+        public static void GenerateBackground() => Wallpaper = Image.FromBitmap(rawWallpaper, false);
 
         public static void Initialize()
         {
