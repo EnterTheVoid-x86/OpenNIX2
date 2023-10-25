@@ -135,6 +135,10 @@ namespace OpenNIX
                     Commands.Echo(input.Split("echo ")[1].Split(" >> "));
                     break;
 
+                case "calc":
+                    Commands.Calculator(input.Split("calc ")[1].Split(" >> "));
+                    break;
+
                 default:
                     Console.WriteLine($"Command \"{args[0].Trim()}\" not found.", SVGAIIColor.Red);
                     break;
