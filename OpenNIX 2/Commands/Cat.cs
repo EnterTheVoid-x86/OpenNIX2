@@ -27,13 +27,13 @@ namespace OpenNIX
                 if (input.Contains("\""))
                     catTo = @$"{Directory.GetCurrentDirectory()}{(Directory.GetCurrentDirectory() != @"0:\" ? @"\" : "")}{input.Substring(5, input.Length - 5)}".Trim();
                 else if (args[1].StartsWith("\""))
-                    catTo = @$"{args[1]}";
+                    catTo = @$"0:\{args[1]}";
                 else
                     catTo = @$"{Directory.GetCurrentDirectory()}{(Directory.GetCurrentDirectory() != @"0:\" ? @"\" : "")}{args[1]}".Trim();
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Failed to get directories. Error: {e.Message}");
+                Console.WriteLine($"Failed to get directories. Error: {e.Message}", SVGAIIColor.Red);
             }
             try
             {

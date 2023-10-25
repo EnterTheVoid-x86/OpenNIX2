@@ -29,37 +29,45 @@ namespace OpenNIX
                     cdTo = Directory.GetCurrentDirectory().TrimEnd('\\').Remove(Directory.GetCurrentDirectory().LastIndexOf('\\') + 1);
                     cdTo = cdTo.Remove(cdTo.Length - 1);
                 }
-                catch (Exception e) { Console.WriteLine($"Error: {e.Message}"); }
+                catch (Exception e) { Console.WriteLine($"Error: {e.Message}", SVGAIIColor.Red); }
 
                 if (!cdTo.StartsWith(@"0:\"))
                     cdTo = @"0:\"; // Directory error correction
             }
             else
             {
-                if (input.Contains("\""))
+                if (args[1].StartsWith("\\"))
+                    try
+                    {
+                        cdTo = @$"0:{args[1]}".Trim();
+                    }
+                    catch (Exception e)
+                    { Console.WriteLine($"Error: {e.Message}", SVGAIIColor.Red); }
+                else if (input.Contains("\"") && !args[1].StartsWith("\\"))
                     try
                     {
                         cdTo = @$"{Directory.GetCurrentDirectory()}{(Directory.GetCurrentDirectory() != @"0:\" ? @"\" : "")}{input.Substring(4, input.Length - 5)}".Trim();
                     }
                     catch (Exception e)
-                    { Console.WriteLine($"Error: {e.Message}"); }
+                    { Console.WriteLine($"Error: {e.Message}", SVGAIIColor.Red); }
                 else
                     try
                     {
                         cdTo = @$"{Directory.GetCurrentDirectory()}{(Directory.GetCurrentDirectory() != @"0:\" ? @"\" : "")}{args[1]}".Trim();
                     }
-                    catch (Exception e) { Console.WriteLine($"Error: {e.Message}"); }
+                    catch (Exception e) { Console.WriteLine($"Error: {e.Message}", SVGAIIColor.Red); }
             }
 
 
             try
             {
+                Console.WriteLine(cdTo);
                 if (Directory.Exists(cdTo))
                     Directory.SetCurrentDirectory(cdTo);
                 else
                     Console.WriteLine($"cd: No such directory \"{cdTo.Substring(cdTo.LastIndexOf("\\") + 1)}\"", SVGAIIColor.Red);
             }
-            catch (Exception e) { Console.WriteLine($"Error: {e.Message}"); }
+            catch (Exception e) { Console.WriteLine($"Error: {e.Message}", SVGAIIColor.Red); }
         }
     }
 }

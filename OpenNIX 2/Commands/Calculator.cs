@@ -31,7 +31,7 @@ namespace OpenNIX
             }
             catch (Exception e)
             {
-                Console.WriteLine("calc: error: " + e.Message);
+                Console.WriteLine("calc: error: " + e.Message, SVGAIIColor.Red);
             }
         }
     }

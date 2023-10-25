@@ -3,6 +3,8 @@
  * refer to https://github.com/EnterTheVoid-x86/OpenNIX2/blob/master/LICENSE.md */
 
 
+using System.IO;
+
 namespace OpenNIX
 {
     public static class Shell
@@ -96,7 +98,15 @@ namespace OpenNIX
                     break;
 
                 case "ls":
-                    Commands.LS();
+                    if (input == "ls")
+                    {
+                        args[0] = Directory.GetCurrentDirectory();
+                        Commands.LS(args);
+                    }
+                    else
+                    {
+                        Commands.LS(input.Split("ls ")[1].Split(" >> "));
+                    }
                     break;
 
                 case "stopgui":
