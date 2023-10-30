@@ -3,6 +3,8 @@
  * refer to https://github.com/EnterTheVoid-x86/OpenNIX2/blob/master/LICENSE.md */
 
 
+using Cosmos.System;
+using System;
 using System.IO;
 
 namespace OpenNIX
@@ -31,8 +33,9 @@ namespace OpenNIX
                     break;
 
                 case "info":
-                    string currentTime = Time.MonthString() + "/" + Time.DayString() + "/" + Time.YearString() + ", " + Time.TimeString(true, true, true);
-                    Commands.Info(currentTime);
+                    TimeSpan upTime = DateTime.Now - OpenNIX_2.Kernel.BootTime;
+                    Commands.Info();
+                    Console.Write(upTime, SVGAIIColor.Gray);
                     break;
 
                 case "log":

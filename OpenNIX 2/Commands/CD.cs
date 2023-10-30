@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cosmos.System;
+using System;
 using System.IO;
 
 namespace OpenNIX
@@ -36,7 +37,11 @@ namespace OpenNIX
             }
             else
             {
-                if (args[1].StartsWith("\\"))
+                if (args[1] == "~")
+                {
+                    cdTo = $@"0:\home\{OpenNIX_2.Kernel.Username}";
+                }
+                else if (args[1].StartsWith("\\"))
                     try
                     {
                         cdTo = @$"0:{args[1]}".Trim();
@@ -61,7 +66,6 @@ namespace OpenNIX
 
             try
             {
-                Console.WriteLine(cdTo);
                 if (Directory.Exists(cdTo))
                     Directory.SetCurrentDirectory(cdTo);
                 else

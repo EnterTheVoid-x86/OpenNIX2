@@ -24,10 +24,12 @@ namespace OpenNIX_2
 
         public const string Version = "2.0";
         public static string Build = Resources.BuildDate;
+        public static string ShortBuild = Resources.ShortBuildDate;
         public const string Copyright = "Copyright (c) 2023 Callux Industries. All rights reserved.";
+        public const string CopyrightShort = "(C) Callux Industries.";
         public static string Username = "root";
         public static string Hostname = "OpenNIX";
-        public static string BootTime = Time.MonthString() + "/" + Time.DayString() + "/" + Time.YearString() + ", " + Time.TimeString(true, true, true);
+        public static DateTime BootTime = DateTime.Now;
 
         protected override void BeforeRun()
         {

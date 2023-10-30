@@ -11,6 +11,7 @@ namespace OpenNIX
     {
         private static SVGAIITerminal Console = Kernel.Console;
         static string input = "log info Font loaded.";
+        public static bool diskInitalized = true;
         public static void InitFS(CosmosVFS fs)
         {
             try
@@ -37,6 +38,7 @@ namespace OpenNIX
             catch
             {
                 Logger.WarnLog("Failed to initialize filesystem! Continuing without FS support...");
+                diskInitalized = false;
             }
         }
 

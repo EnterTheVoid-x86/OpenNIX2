@@ -19,6 +19,7 @@ namespace OpenNIX.GUI
     {
         private static short framesToHeapCollect = 10;
         private static bool needToAddTerminal = false;
+        private static bool needToAddAboutWindow = false;
 
         public static Display Screen = OpenNIX_2.Kernel.Screen;
         public static List<Window> Windows = new List<Window>(10);
@@ -141,6 +142,10 @@ namespace OpenNIX.GUI
                 {
                     needToAddTerminal = true;
                 }
+                else if (KeyboardManager.AltPressed && key.Key == ConsoleKeyEx.I)
+                {
+                    needToAddAboutWindow = true;
+                }
                 else if (KeyboardManager.AltPressed && key.Key == ConsoleKeyEx.F4 && !FocusedWindow.Name.StartsWith("WM."))
                 {
                     RemoveWindow(FocusedWindow);
@@ -163,6 +168,16 @@ namespace OpenNIX.GUI
 
                 needToAddTerminal = false;
             }
+
+            if (needToAddAboutWindow)
+            {
+
+                var about = new Dialogue($"Callux OpenNIX {OpenNIX_2.Kernel.Version}\nBuild {OpenNIX_2.Kernel.ShortBuild}\n{OpenNIX_2.Kernel.CopyrightShort}\n\nCreated by EnterTheVoid-x86\n", DialogueIcon.Callux);
+
+                AddWindow(about);
+
+                needToAddAboutWindow = false;
+            }
         }
 
         public static void Render()
@@ -183,7 +198,7 @@ namespace OpenNIX.GUI
            Screen.DrawString(2, 36, $"{MouseManager.X} {MouseManager.Y}", Resources.Font, PrismAPI.Graphics.Color.Black);
            #endif
 
-            if (needToAddTerminal)
+            if (needToAddTerminal || needToAddAboutWindow)
             {
                 MouseDriver.Mouse = Resources.Busy;
             }

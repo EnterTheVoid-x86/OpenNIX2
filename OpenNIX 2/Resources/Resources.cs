@@ -26,6 +26,12 @@ namespace OpenNIX
         [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.BuildDate.txt")] private static byte[] rawBuildDate;
         public static string BuildDate = System.Text.Encoding.ASCII.GetString(rawBuildDate);
 
+        [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.ShortBuildDate.txt")] private static byte[] rawShortBuildDate;
+        public static string ShortBuildDate = System.Text.Encoding.ASCII.GetString(rawShortBuildDate);
+
+        [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.StartupSound.wav")]
+        public readonly static byte[] StartupSound;
+
         [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.Mouse.bmp")] private static byte[] rawMouse;
         public static Canvas Mouse;
 
@@ -43,6 +49,9 @@ namespace OpenNIX
 
         [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.Error.bmp")] private static byte[] rawError;
         public static Canvas Error;
+
+        [ManifestResourceStream(ResourceName = "OpenNIX_2.Resources.Callux.bmp")] private static byte[] rawCallux;
+        public static Canvas Callux;
         public static void GenerateFont() => Font = new Font(rawFont, 16);
 
         public static void GenerateBackground() => Wallpaper = Image.FromBitmap(rawWallpaper, false);
@@ -55,6 +64,7 @@ namespace OpenNIX
             Busy = Image.FromBitmap(rawBusy, false);
             Link = Image.FromBitmap(rawLink, false);
             Error = Image.FromBitmap(rawError, false);
+            Callux = Image.FromBitmap(rawCallux, false);
             Logger.SuccessLog("Embedded resources initialized.");
         }
     }

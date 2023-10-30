@@ -1,5 +1,6 @@
 ﻿using Cosmos.Core;
 using OpenNIX_2;
+using System;
 
 namespace OpenNIX
 {
@@ -8,7 +9,7 @@ namespace OpenNIX
         static uint maxmem = CPU.GetAmountOfRAM();
         static ulong availableMem = GCImplementation.GetAvailableRAM();
         static ulong usedmem = maxmem - availableMem;
-        public static void Info(string currentTime)
+        public static void Info()
         {
             Console.WriteLine();
             Console.DrawImage(Resources.Logo, false);
@@ -18,7 +19,7 @@ namespace OpenNIX
             Console.WriteLine($"RAM: {usedmem}/{maxmem}MB", SVGAIIColor.Gray);
             Console.WriteLine($"Display: {Kernel.Screen.Width}x{Kernel.Screen.Height}", SVGAIIColor.Gray);
             Console.WriteLine($"Time at boot: {Kernel.BootTime}", SVGAIIColor.Gray);
-            Console.WriteLine($"Current time: {currentTime}", SVGAIIColor.Gray);
+            Console.Write("Uptime: ", SVGAIIColor.Gray);
         }
     }
 }

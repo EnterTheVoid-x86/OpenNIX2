@@ -10,7 +10,8 @@ namespace OpenNIX.GUI.Apps
     public enum DialogueIcon
     {
         None = 0,
-        Error = 2
+        Error = 2,
+        Callux = 3
     }
 
     public class Dialogue : Window
@@ -24,7 +25,7 @@ namespace OpenNIX.GUI.Apps
             (WindowManager.Screen.Width / 2) - (((Icon != DialogueIcon.None ? 62 : 20) + MeasureLongestLine(Text)) / 2),
             (WindowManager.Screen.Height / 2) - (((Icon != DialogueIcon.None ? 62 : 20) + MeasureStringHeight(Text)) / 2),
             (Icon != DialogueIcon.None ? 62 : 20) + MeasureLongestLine(Text),
-            (Icon != DialogueIcon.None ? 62 : 20) + MeasureStringHeight(Text))
+            (Icon != DialogueIcon.None ? 62 : 20) + MeasureStringHeight(Text), "Dialogue")
         {
             try
             {
@@ -51,6 +52,10 @@ namespace OpenNIX.GUI.Apps
 
                     case DialogueIcon.Error:
                         Contents.DrawImage(10, 10, Resources.Error);
+                        break;
+
+                    case DialogueIcon.Callux:
+                        Contents.DrawImage(10, 10, Resources.Callux);
                         break;
                 }
 

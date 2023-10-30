@@ -18,6 +18,7 @@ namespace OpenNIX
             MouseDriver.Initialize();
             DiskManager.InitFS(Kernel.FS);
             NetworkManager.Initialize();
+            AudioManager.Init();
             Logger.SuccessLog("Login manager initalized.");
         }
     }
