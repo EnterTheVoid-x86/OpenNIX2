@@ -15,7 +15,6 @@ namespace OpenNIX
             Logger.InfoLog("Running init process...");
             Logger.SuccessLog("Screen initalized.");
             Resources.Initialize();
-            MouseDriver.Initialize();
             DiskManager.InitFS(Kernel.FS);
             NetworkManager.Initialize();
             AudioManager.Init();

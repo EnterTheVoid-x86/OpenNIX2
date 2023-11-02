@@ -11,7 +11,7 @@ namespace OpenNIX
     {
         private static SVGAIITerminal Console = Kernel.Console;
         static string input = "log info Font loaded.";
-        public static bool diskInitalized = true;
+        public static bool diskInitalized = false;
         public static void InitFS(CosmosVFS fs)
         {
             try
@@ -34,11 +34,12 @@ namespace OpenNIX
                     Directory.CreateDirectory(@"0:\etc\");
                 }
 
+                DiskManager.diskInitalized = true;
+
             }
             catch
             {
                 Logger.WarnLog("Failed to initialize filesystem! Continuing without FS support...");
-                diskInitalized = false;
             }
         }
 

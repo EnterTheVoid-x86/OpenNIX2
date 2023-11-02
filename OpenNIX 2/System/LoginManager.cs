@@ -68,10 +68,10 @@ namespace OpenNIX
                                 Logger.InfoLog("Dropping into Shell...");
                                 Kernel.Username = username;
                                 Directory.SetCurrentDirectory(DiskManager.GetCosmosLikePath($"/home/{username}"));
-                                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.E3, Cosmos.System.Durations.Eighth);
-                                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.G3, Cosmos.System.Durations.Eighth);
-                                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.A3, Cosmos.System.Durations.Eighth);
-                                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.AS3, Cosmos.System.Durations.Eighth);
+                                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.E3, Cosmos.System.Durations.Sixteenth);
+                                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.G3, Cosmos.System.Durations.Sixteenth);
+                                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.A3, Cosmos.System.Durations.Sixteenth);
+                                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.AS3, Cosmos.System.Durations.Sixteenth);
                                 for (; ; )
                                 {
                                     Console.Write($"[{Kernel.Username}@{Kernel.Hostname} {DiskManager.GetUnixLikePath(Directory.GetCurrentDirectory())}]# ", SVGAIIColor.Gray);
@@ -122,10 +122,6 @@ namespace OpenNIX
             else
             {
                 Logger.InfoLog("Entering safe mode...");
-                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.E3, Cosmos.System.Durations.Eighth);
-                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.G3, Cosmos.System.Durations.Eighth);
-                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.A3, Cosmos.System.Durations.Eighth);
-                Cosmos.System.PCSpeaker.Beep(Cosmos.System.Notes.AS3, Cosmos.System.Durations.Eighth);
                 for (; ; )
                 {
                     Console.Write($"[{Kernel.Username}@{Kernel.Hostname} {DiskManager.GetUnixLikePath(Directory.GetCurrentDirectory())}]# ", SVGAIIColor.Gray);

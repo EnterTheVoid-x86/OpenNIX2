@@ -4,12 +4,15 @@
 
 
 using Cosmos.System;
+using PrismAPI.Filesystem.Formats.ELF.ELFHeader;
+using PrismAPI.Runtime.SSharp;
+using PrismAPI.Runtime;
 using System;
 using System.IO;
 
 namespace OpenNIX
 {
-    public static class Shell
+    public static unsafe class Shell
     {
         public static void Run(string input, SVGAIITerminal Console)
         {
@@ -152,7 +155,68 @@ namespace OpenNIX
                     Commands.Calculator(input.Split("calc ")[1].Split(" >> "));
                     break;
 
+                case "ss":
+                    Commands.SystemSharp(input);
+                    break;
+
                 default:
+                    if (File.Exists($@"0:\{args[0]}") || File.Exists(args[0]) || File.Exists($@"{Directory.GetCurrentDirectory()}\{args[0]}"))
+                    {
+                        byte[] ROM = null;
+                        BinarySS EXE = null;
+                        // Try to read the program's running data.
+
+                        try
+                        {
+                            ROM = File.ReadAllBytes(args[0]);
+                        }
+                        catch (FileNotFoundException) 
+                        {
+                            try
+                            {
+                                ROM = File.ReadAllBytes($@"0:\{args[0]}");
+                            }
+                            catch (FileNotFoundException)
+                            {
+                                ROM = File.ReadAllBytes($@"{Directory.GetCurrentDirectory()}\{args[0]}");
+                            }
+                        }
+
+                        // Check if the file isn't an ELF. Run as a SSharp program if it isn't.
+                        if (ROM.Length < sizeof(ELFHeader32))
+                        {
+                            try
+                            {
+                                EXE = new(File.ReadAllBytes(args[0]));
+                            }
+                            catch (FileNotFoundException)
+                            {
+                                try
+                                {
+                                    EXE = new(File.ReadAllBytes($@"0:\{args[0]}"));
+                                }
+                                catch (FileNotFoundException) 
+                                {
+                                    EXE = new(File.ReadAllBytes(($@"{Directory.GetCurrentDirectory()}\{args[0]}")));
+                                }
+                            }
+
+                            while (EXE.IsEnabled)
+                            {
+                                EXE.NextInstruction();
+                            }
+
+                            return;
+                        }
+                        // Run an elf file when it's detected.
+                        else
+                        {
+                            // Create a new header, then run it.
+                            Executable E = Executable.FromELF32(ROM);
+                            E.Main();
+                            return;
+                        }
+                    }
                     Console.WriteLine($"Command \"{args[0].Trim()}\" not found.", SVGAIIColor.Red);
                     break;
             }
