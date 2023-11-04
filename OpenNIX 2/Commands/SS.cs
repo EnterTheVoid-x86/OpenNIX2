@@ -15,14 +15,9 @@ namespace OpenNIX
         {
             string[] args = shinput.Split(' ');
 
-            for (int i = 0; i < args.Length; i++)
-            {
-                Console.WriteLine(args[i]);
-            }
-
             if (args.Length == 1)
             {
-                Console.WriteLine("OpenSS CLI interface, v2");
+                Console.WriteLine("OpenSS CLI interface, v2.1");
                 Console.WriteLine("Copyleft Callux 2023.\n");
 
                 while (true)
@@ -32,8 +27,6 @@ namespace OpenNIX
                         Console.Write(">>> ");
 
                         string input = Console.ReadLine();
-
-                        Console.WriteLine(input);
 
                         if (string.IsNullOrEmpty(input))
                         {
@@ -102,6 +95,19 @@ namespace OpenNIX
                     Console.WriteLine("That file doesn't exist!", SVGAIIColor.Red);
                     return;
                 }
+            }
+
+            if (args[1] == "dump")
+            {
+                if (File.Exists(@$"{Directory.GetCurrentDirectory()}{(Directory.GetCurrentDirectory() != @"0:\" ? @"\" : "")}{args[2]}".Trim()))
+                {
+                    new BinarySS(File.ReadAllBytes(@$"{Directory.GetCurrentDirectory()}{(Directory.GetCurrentDirectory() != @"0:\" ? @"\" : "")}{args[2]}".Trim())).DumpInstruction();
+                }
+                else
+                {
+                    Console.WriteLine("That file doesn't exist!", SVGAIIColor.Red);
+                }
+                return;
             }
 
         }
